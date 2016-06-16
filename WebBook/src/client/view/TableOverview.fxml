@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="personTable" maxHeight="-1.0" maxWidth="-1.0" minHeight="-1.0" minWidth="-1.0" prefHeight="297.0" prefWidth="1100.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="client.controller.TableOverviewController">
+  <children>
+    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="-1.0" prefWidth="-1.0">
+      <center>
+        <TableView id="personTable" fx:id="tableView" editable="false" maxHeight="-1.0" maxWidth="-1.0" minHeight="-1.0" minWidth="-1.0" prefHeight="297.0" prefWidth="1100.0" tableMenuButtonVisible="false">
+          <columns>
+            <TableColumn maxWidth="288.0" minWidth="288.0" prefWidth="288.0" text="ФИО студента" fx:id="FIOColumn" />
+            <TableColumn maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Страна" fx:id="countryColumn" />
+            <TableColumn maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Область" fx:id="regionColumn" />
+            <TableColumn maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Город" fx:id="cityColumn" />
+            <TableColumn maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Улица" fx:id="streetColumn" />
+            <TableColumn maxWidth="70.0" minWidth="70.0" prefWidth="70.0" resizable="false" text="Дом" fx:id="houseNumberColumn" />
+            <TableColumn maxWidth="70.0" minWidth="70.0" prefWidth="70.0" resizable="false" text="Корпус" fx:id="pavilionNumberColumn" />
+            <TableColumn maxWidth="70.0" minWidth="70.0" prefWidth="70.0" resizable="false" text="Квартира" fx:id="flatNumberColumn" />
+          </columns>
+        </TableView>
+      </center>
+      <rotationAxis>
+        <Point3D fx:id="x1" />
+      </rotationAxis>
+    </BorderPane>
+  </children>
+</AnchorPane>

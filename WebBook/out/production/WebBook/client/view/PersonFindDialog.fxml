@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="personTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="1160.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="client.controller.PersonFindDialogController">
+  <children>
+    <Button layoutY="388.0" mnemonicParsing="false" onAction="#handleFindPerson" prefHeight="72.0" prefWidth="160.99990000000253" text="FIND" AnchorPane.rightAnchor="10.0" />
+    <Button layoutX="809.0" mnemonicParsing="false" onAction="#handleCancel" prefWidth="160.0" text="Cancel" AnchorPane.bottomAnchor="20.0" />
+  </children>
+</AnchorPane>

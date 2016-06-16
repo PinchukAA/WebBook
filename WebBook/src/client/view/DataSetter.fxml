@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="297.0" prefWidth="1160.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="client.controller.DataSetterController">
+  <children>
+    <ToolBar disable="false" focusTraversable="false" maxHeight="-1.0" maxWidth="-1.0" minHeight="-1.0" minWidth="-1.0" orientation="VERTICAL" prefHeight="297.0" prefWidth="60.0" visible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <items>
+        <Button alignment="CENTER" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" maxHeight="-1.0" maxWidth="-1.0" minHeight="-1.0" minWidth="-1.0" mnemonicParsing="false" onAction="#showFirstPage" prefHeight="30.0" prefWidth="50.0" text="First" textAlignment="JUSTIFY">
+          <rotationAxis>
+            <Point3D fx:id="x1" />
+          </rotationAxis>
+        </Button>
+        <Button alignment="CENTER" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" maxHeight="-1.0" maxWidth="-1.0" minHeight="-1.0" minWidth="-1.0" mnemonicParsing="false" onAction="#showPrevPage" prefHeight="30.0" prefWidth="50.0" rotationAxis="$x1" text="Prev" textAlignment="JUSTIFY" />
+        <Button alignment="CENTER" cancelButton="false" contentDisplay="CENTER" focusTraversable="false" maxHeight="-1.0" maxWidth="-1.0" minHeight="-1.0" minWidth="-1.0" mnemonicParsing="false" onAction="#showNextPage" prefHeight="30.0" prefWidth="50.0" rotationAxis="$x1" text="Next" textAlignment="JUSTIFY" />
+        <Button alignment="CENTER" cancelButton="false" contentDisplay="BOTTOM" focusTraversable="false" maxHeight="-1.0" maxWidth="-1.0" minHeight="-1.0" minWidth="-1.0" mnemonicParsing="false" onAction="#showLastPage" prefHeight="30.0" prefWidth="50.0" rotationAxis="$x1" text="Last" textAlignment="JUSTIFY" />
+      </items>
+    </ToolBar>
+    <TextField id="tableSizeField" fx:id="dataSizeField" alignment="CENTER" editable="false" focusTraversable="false" layoutX="1110.0" layoutY="269.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.65" prefHeight="20.0" prefWidth="40.0" />
+    <Text layoutX="1121.0" layoutY="258.0" scaleX="1.283551801395792" scaleY="1.126499511001744" strokeType="OUTSIDE" strokeWidth="0.0" text="per" textOrigin="CENTER" />
+    <TextField id="tableSizeField" fx:id="selectedDataSizeField" alignment="CENTER" layoutX="1110.0" layoutY="228.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#changeSelectedDataSize" prefColumnCount="0" prefHeight="20.0" prefWidth="40.0" />
+  </children>
+</AnchorPane>

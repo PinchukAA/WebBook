@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="personTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="223.0" prefWidth="723.9998779296875" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="client.controller.PersonDeleteDialogController">
+  <children>
+    <Button layoutY="186.0" mnemonicParsing="false" onAction="#deleteData" prefHeight="23.0" prefWidth="160.0001220703125" text="Delete" AnchorPane.rightAnchor="14.0" />
+    <Button layoutX="362.0" mnemonicParsing="false" onAction="#handleCancel" prefWidth="160.0" text="Cancel" AnchorPane.bottomAnchor="14.0" />
+  </children>
+</AnchorPane>

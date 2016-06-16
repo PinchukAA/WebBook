@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="personTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="710.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="client.controller.DataEnterComponentController">
+  <children>
+    <GridPane layoutX="6.0" layoutY="0.0" prefHeight="150.0" prefWidth="710.0">
+      <children>
+        <Label text="Last Name" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Label text="Surname" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <Label text="Country" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <Label text="Region" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <TextField fx:id="firstNameField" prefWidth="-1.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <TextField fx:id="lastNameField" prefWidth="-1.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <TextField id="birthdayField" fx:id="surNameField" prefWidth="-1.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <TextField id="birthdayField" fx:id="countryField" prefWidth="-1.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <TextField id="birthdayField" fx:id="regionField" prefWidth="-1.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+        <Label text="Flat Number" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+        <Label text="Pavilion Number" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+        <Label text="House Number" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+        <TextField id="birthdayField" fx:id="streetField" prefWidth="238.0001220703125" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+        <TextField id="birthdayField" fx:id="cityField" prefWidth="-1.0" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+        <TextField id="postalCodeField" fx:id="houseNumberField" prefWidth="-1.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+        <TextField id="cityField" fx:id="pavilionNumberField" prefWidth="-1.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+        <TextField id="streetField" fx:id="flatNumberField" prefWidth="-1.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+        <Label text="Street" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+        <CheckBox id="firstNameCheck" fx:id="firstNameCheckBox" mnemonicParsing="false" text="" GridPane.columnIndex="2" GridPane.rowIndex="0">
+          <GridPane.margin>
+            <Insets left="14.0" fx:id="x1" />
+          </GridPane.margin>
+        </CheckBox>
+        <CheckBox id="lastNameCheck" fx:id="lastNameCheckBox" mnemonicParsing="false" text="" GridPane.columnIndex="2" GridPane.margin="$x1" GridPane.rowIndex="1" />
+        <CheckBox id="surNameCheck" fx:id="surNameCheckBox" mnemonicParsing="false" text="" GridPane.columnIndex="2" GridPane.margin="$x1" GridPane.rowIndex="2" />
+        <CheckBox id="countryCheck" fx:id="countryCheckBox" mnemonicParsing="false" text="" GridPane.columnIndex="2" GridPane.margin="$x1" GridPane.rowIndex="3" />
+        <CheckBox id="regionCheck" fx:id="regionCheckBox" mnemonicParsing="false" text="" GridPane.columnIndex="2" GridPane.margin="$x1" GridPane.rowIndex="4" />
+        <Label prefWidth="34.0" text="City" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+        <CheckBox id="firstNameCheck" fx:id="cityCheckBox" mnemonicParsing="false" text="" GridPane.columnIndex="5" GridPane.margin="$x1" GridPane.rowIndex="0" />
+        <CheckBox id="streetCheck" fx:id="streetCheckBox" mnemonicParsing="false" text="" GridPane.columnIndex="5" GridPane.margin="$x1" GridPane.rowIndex="1" />
+        <CheckBox id="houseNumberCheck" fx:id="houseNumberCheckBox" mnemonicParsing="false" text="" GridPane.columnIndex="5" GridPane.margin="$x1" GridPane.rowIndex="2" />
+        <CheckBox id="pavilionNumberCheck" fx:id="pavilionNumberCheckBox" mnemonicParsing="false" text="" GridPane.columnIndex="5" GridPane.margin="$x1" GridPane.rowIndex="3" />
+        <CheckBox id="flatNumberCheck" fx:id="flatNumberCheckBox" mnemonicParsing="false" text="" GridPane.columnIndex="5" GridPane.margin="$x1" GridPane.rowIndex="4" />
+        <Label prefWidth="61.000091552734375" text="First Name" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.0" minWidth="10.0" prefWidth="74.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="205.0" minWidth="10.0" prefWidth="201.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="123.0" minWidth="10.0" prefWidth="82.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="196.0" minWidth="10.0" prefWidth="102.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="284.0" minWidth="10.0" prefWidth="201.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="118.0" minWidth="10.0" prefWidth="43.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+  </children>
+</AnchorPane>

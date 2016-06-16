@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.757415771484375" prefWidth="272.0001220703125" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="client.controller.TableNameDialogController">
+  <children>
+    <TextField fx:id="tableNameField" layoutX="8.0" layoutY="30.0" prefWidth="190.373291015625" />
+    <Text layoutX="25.0" layoutY="25.0" scaleX="1.2" scaleY="1.2" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter name of file to open:     " />
+    <Button layoutX="213.0" layoutY="7.0" mnemonicParsing="false" onAction="#openTable" prefHeight="45.0" prefWidth="45.0" text="OK" />
+  </children>
+</AnchorPane>
