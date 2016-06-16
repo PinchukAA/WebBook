@@ -94,8 +94,9 @@ public class MainApp extends Application{
         rootLayoutController.setMainApp(this);
 
         dataSetterController.setTableOverviewController(tableOverviewController);
-      //  rootLayoutController.setTableOverviewController(tableOverviewController);
         rootLayoutController.setClient(client);
+        rootLayoutController.setDataSetterController(dataSetterController);
+        dataSetterController.setClient(client);
 
         Scene scene = new Scene(rootLayout);
         primaryStage.setScene(scene);

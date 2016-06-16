@@ -90,6 +90,7 @@ public class DataSetterController{
 
             alert.showAndWait();
         } else {
+            System.out.print(selectedDataSize);
             client.sendToServer(Constants.CHANGE_SELECTED_DATA_SIZE);
             client.sendToServer(selectedDataSize);
             initTable();

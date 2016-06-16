@@ -14,9 +14,9 @@ public class PersonAddress implements java.io.Serializable{
         this.region = new String();
         this.city = new String();
         this.street = new String();
-        this.houseNumber = new Integer(null);
-        this.pavilionNumber = new Integer(null);
-        this.flatNumber = new Integer(null);
+        this.houseNumber = new Integer(0);
+        this.pavilionNumber = new Integer(0);
+        this.flatNumber = new Integer(0);
     }
 
     public PersonAddress(String country, String region, String city, String street, Integer houseNumber, Integer pavilionNumber, Integer flatNumber){

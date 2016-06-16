@@ -60,8 +60,7 @@ public class RootLayoutController {
     private void connect(){
         if(isCorrectHostAndPort()){
             client.connect(getHostText(), Integer.parseInt(getPortText()));
-      //      System.out.print(client.getNumberFromServer());
-      //      dataSetterController.initTable();
+            dataSetterController.initTable();
         }
     }
 

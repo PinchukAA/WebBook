@@ -40,9 +40,16 @@ public class ServerSession {
             outputStream = new ObjectOutputStream(socket.getOutputStream());
             outputStream.flush();
             inputStream = new ObjectInputStream(socket.getInputStream());
-/*
 
-*/
+            dataSetter = new DataSetter();
+            dataSetter.setServerSession(this);
+
+            dataBase = new DataBase(dataSetter);
+
+            dataSaver = new DataSaver();
+            dataSaver.setServerSession(this);
+            dataSaver.setDataBase(dataBase);
+
             runSession();
         } catch (Exception e) {
             jTextArea.append("ERROR.\n");
@@ -54,23 +61,14 @@ public class ServerSession {
         jTextArea.append("Run session\n");
         String command;
         jTextArea.append("Client connected\n");
- //       sendToClient(1);
+
         while (true) {
             command = (String) inputStream.readObject();
             if (command.equals(Constants.CLIENT_EXIT)) break;
             jTextArea.append("New command from client " + command + "\n");
             switch (command) {
                 case Constants.OPEN_FILE:
-                  //  dataSaver.openFile();
-                    dataSetter = new DataSetter();
-                    dataSetter.setServerSession(this);
-
-                    dataBase = new DataBase(dataSetter);
-
-                    dataSaver = new DataSaver();
-                    dataSaver.setServerSession(this);
-                    dataSaver.setDataBase(dataBase);
-
+                    dataSaver.openFile();
                     break;
                 case Constants.SAVE_FILE:
                     dataSaver.saveFile();

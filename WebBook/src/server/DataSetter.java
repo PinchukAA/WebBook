@@ -1,6 +1,5 @@
 package server;
 
-import com.sun.javafx.collections.ObservableListWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Person;
@@ -41,6 +40,7 @@ public class DataSetter {
         try {
             System.out.print(1);
             serverSession.getOutputStream().writeObject(selectedData.toArray(new Person[selectedData.size()]));
+            serverSession.getOutputStream().writeObject(currentData.size());
             serverSession.getOutputStream().flush();
 
         } catch (IOException e) {
@@ -87,6 +87,7 @@ public class DataSetter {
 
     public void changeSelectedDataSize(Integer selectedDataSize){
         if (selectedDataSize > currentData.size()) this.selectedDataSize = currentData.size();
+        else this.selectedDataSize = selectedDataSize;
         showFirstPage();
     }
 }
