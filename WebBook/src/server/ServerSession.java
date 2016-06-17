@@ -136,4 +136,7 @@ public class ServerSession {
     public ObjectOutputStream getOutputStream(){
         return outputStream;
     }
+    public ObjectInputStream getInputStream(){
+        return inputStream;
+    }
 }
