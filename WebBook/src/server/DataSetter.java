@@ -28,17 +28,13 @@ public class DataSetter {
             showFirstPage();
         } else selectData();
 
-       // dataSizeField.setText(String.valueOf(currentData.size()));
-       // selectedDataSizeField.setText(String.valueOf(selectedDataSize));
     }
 
     private void selectData(){
         if (startIndex == endIndex && endIndex != 0) showPrevPage();
         selectedData.setAll(currentData.subList(startIndex, endIndex));
-//        selectedDataSizeField.setText(String.valueOf(selectedDataSize));
 
         try {
-            System.out.print(1);
             serverSession.getOutputStream().writeObject(selectedData.toArray(new Person[selectedData.size()]));
             serverSession.getOutputStream().writeObject(currentData.size());
             serverSession.getOutputStream().flush();
@@ -46,7 +42,6 @@ public class DataSetter {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //      serverSession.sendToClient(selectedData);
     }
 
 

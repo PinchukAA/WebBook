@@ -41,7 +41,6 @@ public class PersonFindDialogController {
 
     @FXML
     public void handleFindPerson(){
-        client.sendToServer(Constants.REMOVE_FIND_DATA);
 
         Person tempPerson = new Person();
         if(findDataEnterComponentController.getFirstNameCheck())
@@ -67,13 +66,13 @@ public class PersonFindDialogController {
         else tempPerson.getAddress().setStreet(null);
         if(findDataEnterComponentController.getHouseNumberCheck())
             tempPerson.getAddress().setHouseNumber(findDataEnterComponentController.getHouseNumberText());
-        else tempPerson.getAddress().setHouseNumber(null);
+        else tempPerson.getAddress().setHouseNumber(0);
         if(findDataEnterComponentController.getPavilionNumberCheck())
             tempPerson.getAddress().setPavilionNumber(findDataEnterComponentController.getPavilionNumberText());
-        else tempPerson.getAddress().setPavilionNumber(null);
+        else tempPerson.getAddress().setPavilionNumber(0);
         if(findDataEnterComponentController.getFlatNumberCheck())
             tempPerson.getAddress().setFlatNumber(findDataEnterComponentController.getFlatNumberText());
-        else tempPerson.getAddress().setFlatNumber(null);
+        else tempPerson.getAddress().setFlatNumber(0);
 
         client.sendToServer(Constants.FIND_PERSON);
         client.sendToServer(tempPerson);

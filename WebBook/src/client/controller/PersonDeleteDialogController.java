@@ -1,18 +1,18 @@
 package client.controller;
 
 import client.Client;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import model.Constants;
 import model.Person;
+import server.DataSetter;
 
 import java.util.Iterator;
 
 public class PersonDeleteDialogController {
     private DataEnterComponentController dataEnterComponentController;
+    private DataSetterController dataSetterController;
     private Client client;
     private Stage dialogStage;
     private Integer delNumber;
@@ -28,11 +28,12 @@ public class PersonDeleteDialogController {
         this.dataEnterComponentController = dataEnterComponentController;
     }
 
+    public void setDataSetterController(DataSetterController dataSetterController){
+        this.dataSetterController = dataSetterController;
+    }
 
     @FXML
     public void deleteData(){
-        client.sendToServer(Constants.REMOVE_FIND_DATA);
-
         Person tempPerson = new Person();
         if(dataEnterComponentController.getFirstNameCheck())
             tempPerson.setFirstName(dataEnterComponentController.getFirstNameText());
@@ -57,13 +58,13 @@ public class PersonDeleteDialogController {
         else tempPerson.getAddress().setStreet(null);
         if(dataEnterComponentController.getHouseNumberCheck())
             tempPerson.getAddress().setHouseNumber(dataEnterComponentController.getHouseNumberText());
-        else tempPerson.getAddress().setHouseNumber(null);
+        else tempPerson.getAddress().setHouseNumber(0);
         if(dataEnterComponentController.getPavilionNumberCheck())
             tempPerson.getAddress().setPavilionNumber(dataEnterComponentController.getPavilionNumberText());
-        else tempPerson.getAddress().setPavilionNumber(null);
+        else tempPerson.getAddress().setPavilionNumber(0);
         if(dataEnterComponentController.getFlatNumberCheck())
             tempPerson.getAddress().setFlatNumber(dataEnterComponentController.getFlatNumberText());
-        else tempPerson.getAddress().setFlatNumber(null);
+        else tempPerson.getAddress().setFlatNumber(0);
 
         client.sendToServer(Constants.FIND_DELETE);
         client.sendToServer(tempPerson);
@@ -73,6 +74,8 @@ public class PersonDeleteDialogController {
         alert.initOwner(dialogStage);
 
         if(delNumber != 0){
+            dataSetterController.initTable();
+            
             alert.setTitle("Deleted items");
             alert.setHeaderText("Deleted items");
             alert.setContentText(delNumber + " items have been deleted.");
@@ -85,6 +88,7 @@ public class PersonDeleteDialogController {
 
             alert.showAndWait();
         }
+
     }
 
     @FXML

@@ -192,8 +192,10 @@ public class MainApp extends Application{
         dialogStage.setScene(scene);
 
         findDataSetterController.setTableOverviewController(findTableOverviewController);
-
+        findDataSetterController.setClient(client);
         findDataSetterController.setDialogStage(dialogStage);
+        findDataSetterController.setF();
+
         personFindDialogController.setDialogStage(dialogStage);
         personFindDialogController.setFindDataSetterController(findDataSetterController);
         personFindDialogController.setFindDataEnterComponentController(findDataEnterComponentController);
@@ -241,6 +243,7 @@ public class MainApp extends Application{
 
         personDeleteDialogController.setDialogStage(dialogStage);
         personDeleteDialogController.setDataEnterComponentController(dataEnterComponentController);
+        personDeleteDialogController.setDataSetterController(dataSetterController);
         personDeleteDialogController.setClient(client);
 
         dialogStage.showAndWait();

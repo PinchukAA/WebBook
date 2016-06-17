@@ -78,6 +78,7 @@ public class RootLayoutController {
     @FXML
     public void handleFindPerson(){
         boolean okClicked = mainApp.showPersonFindDialog();
+
     }
 
     @FXML

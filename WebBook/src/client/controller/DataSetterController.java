@@ -10,9 +10,8 @@ import javafx.stage.Stage;
 import model.Constants;
 import model.Person;
 
-import java.util.Collection;
-
 public class DataSetterController{
+    boolean f = false;
     @FXML
     private TextField selectedDataSizeField;
     @FXML
@@ -24,6 +23,10 @@ public class DataSetterController{
     private ObservableList<Person> selectedData = FXCollections.observableArrayList();
 
     private int selectedDataSize = 0;
+
+    public void setF(){
+        f = true;
+    }
 
     public void setDialogStage(Stage dialogStage){
         this.dialogStage = dialogStage;
@@ -49,25 +52,29 @@ public class DataSetterController{
 
     @FXML
     private void showFirstPage(){
-        client.sendToServer(Constants.FIRST_PAGE);
+        if(f) client.sendToServer(Constants.FIRST_FIND_PAGE);
+        else client.sendToServer(Constants.FIRST_PAGE);
         initTable();
     }
 
     @FXML
     private void showLastPage(){
-        client.sendToServer(Constants.LAST_PAGE);
+        if(f) client.sendToServer(Constants.LAST_FIND_PAGE);
+        else client.sendToServer(Constants.LAST_PAGE);
         initTable();
     }
 
     @FXML
     private void showPrevPage(){
-        client.sendToServer(Constants.PREV_PAGE);
+        if(f) client.sendToServer(Constants.PREV_FIND_PAGE);
+        else client.sendToServer(Constants.PREV_PAGE);
         initTable();
     }
 
     @FXML
     public void showNextPage(){
-        client.sendToServer(Constants.NEXT_PAGE);
+        if(f) client.sendToServer(Constants.NEXT_FIND_PAGE);
+        else client.sendToServer(Constants.NEXT_PAGE);
         initTable();
     }
 
@@ -90,8 +97,8 @@ public class DataSetterController{
 
             alert.showAndWait();
         } else {
-            System.out.print(selectedDataSize);
-            client.sendToServer(Constants.CHANGE_SELECTED_DATA_SIZE);
+            if(f) client.sendToServer(Constants.CHANGE_SELECTED_FIND_DATA_SIZE);
+            else client.sendToServer(Constants.CHANGE_SELECTED_DATA_SIZE);
             client.sendToServer(selectedDataSize);
             initTable();
         }

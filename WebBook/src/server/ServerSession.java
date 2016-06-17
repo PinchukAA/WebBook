@@ -22,6 +22,7 @@ public class ServerSession {
     private DataBase dataBase;
     private DataSaver dataSaver;
     private DataSetter dataSetter;
+    private DataSetter findDataSetter;
     private DataRemover dataRemover;
     private DataSearcher dataSearcher;
 
@@ -50,6 +51,12 @@ public class ServerSession {
             dataSaver.setServerSession(this);
             dataSaver.setDataBase(dataBase);
 
+            findDataSetter = new DataSetter();
+            findDataSetter.setServerSession(this);
+            dataSearcher = new DataSearcher(findDataSetter, dataBase);
+
+            dataRemover = new DataRemover(dataSetter, dataBase, this);
+
             runSession();
         } catch (Exception e) {
             jTextArea.append("ERROR.\n");
@@ -73,6 +80,7 @@ public class ServerSession {
                 case Constants.SAVE_FILE:
                     dataSaver.saveFile();
                     break;
+
                 case Constants.FIRST_PAGE:
                     dataSetter.showFirstPage();
                     break;
@@ -88,20 +96,31 @@ public class ServerSession {
                 case Constants.CHANGE_SELECTED_DATA_SIZE:
                     dataSetter.changeSelectedDataSize((Integer) inputStream.readObject());
                     break;
+
+                case Constants.FIRST_FIND_PAGE:
+                    findDataSetter.showFirstPage();
+                    break;
+                case Constants.PREV_FIND_PAGE:
+                    findDataSetter.showPrevPage();
+                    break;
+                case Constants.NEXT_FIND_PAGE:
+                    findDataSetter.showNextPage();
+                    break;
+                case Constants.LAST_FIND_PAGE:
+                    findDataSetter.showLastPage();
+                    break;
+                case Constants.CHANGE_SELECTED_FIND_DATA_SIZE:
+                    findDataSetter.changeSelectedDataSize((Integer) inputStream.readObject());
+                    break;
+
                 case Constants.ADD_PERSON:
                     dataBase.addPerson((Person) inputStream.readObject());
                     break;
-                case Constants.DELETE_PERSON:
-                    dataBase.deletePerson((Person) inputStream.readObject());
-                    break;
-                case Constants.DELETE_ALL_PERSONS:
-                    dataBase.deletePerson((ObservableList<Person>) inputStream.readObject());
-                    break;
                 case Constants.FIND_PERSON:
-
+                    dataSearcher.setFindPerson((Person)inputStream.readObject());
                     break;
                 case Constants.FIND_DELETE:
-
+                    dataRemover.setDeletePerson((Person)inputStream.readObject());
                     break;
                 default:
                     jTextArea.append("Wrong command " + command);
@@ -114,15 +133,4 @@ public class ServerSession {
     public ObjectOutputStream getOutputStream(){
         return outputStream;
     }
-/*
-    public void sendToClient(Object object){
-        try {
-            outputStream.writeObject(object);
-            outputStream.flush();
-        } catch (IOException e){
-            e.printStackTrace();
-            JOptionPane.showMessageDialog
-                    (null, "Can't send data to client", "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
-    }*/
 }
