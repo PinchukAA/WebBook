@@ -7,8 +7,6 @@ import java.net.Socket;
 
 public class Server {
 
-    //  private static final Logger log = Logger.getLogger(Server.class);
-
     private static final int DEFAULT_PORT = 5555;
     private Socket socket;
     private JTextArea textArea;
@@ -17,13 +15,21 @@ public class Server {
 
     public Server() {
         JFrame frame = new JFrame("Address table SERVER");
-        frame.setSize(850, 500);
+        frame.setSize(250, 700);
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         textArea = new JTextArea();
         textArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(textArea);
-        frame.setVisible(true);
+        scrollPane.setBounds(0, 0, 250, 600);
         frame.add(scrollPane);
+
+        /*JButton startButton = new JButton("START");
+        startButton.setBounds(200, 630, 60, 30);
+        frame.add(startButton);*/
+        frame.setVisible(true);
+
         runServer();
     }
 
@@ -31,7 +37,6 @@ public class Server {
         textArea.append("Run server\n");
         try {
             serverSocket = new ServerSocket(DEFAULT_PORT);
-            //  log.info("START SERVER");
             while (true) {
                 socket = serverSocket.accept();
                 serverSession = new ServerSession(serverSocket, socket, this, textArea);

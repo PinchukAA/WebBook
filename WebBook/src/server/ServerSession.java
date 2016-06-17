@@ -75,10 +75,10 @@ public class ServerSession {
             jTextArea.append("New command from client " + command + "\n");
             switch (command) {
                 case Constants.OPEN_FILE:
-                    dataSaver.openFile();
+                    dataSaver.openFile((String)inputStream.readObject());
                     break;
                 case Constants.SAVE_FILE:
-                    dataSaver.saveFile();
+                    dataSaver.saveFile((String) inputStream.readObject());
                     break;
 
                 case Constants.FIRST_PAGE:
@@ -117,10 +117,13 @@ public class ServerSession {
                     dataBase.addPerson((Person) inputStream.readObject());
                     break;
                 case Constants.FIND_PERSON:
-                    dataSearcher.setFindPerson((Person)inputStream.readObject());
+                    dataSearcher.setFindPerson((Person) inputStream.readObject());
                     break;
                 case Constants.FIND_DELETE:
-                    dataRemover.setDeletePerson((Person)inputStream.readObject());
+                    dataRemover.setDeletePerson((Person) inputStream.readObject());
+                    break;
+                case Constants.DELETE_ALL:
+                    dataBase.deletePerson(dataBase.getData());
                     break;
                 default:
                     jTextArea.append("Wrong command " + command);

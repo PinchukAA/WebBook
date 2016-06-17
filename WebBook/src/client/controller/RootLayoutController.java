@@ -3,7 +3,6 @@ package client.controller;
 import client.Client;
 import client.MainApp;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import model.Constants;
 import model.Person;
@@ -12,7 +11,6 @@ import java.util.regex.Pattern;
 
 public class RootLayoutController {
     private MainApp mainApp;
-    private TableOverviewController tableOverviewController;
     private Client client;
     private DataSetterController dataSetterController;
 
@@ -21,12 +19,8 @@ public class RootLayoutController {
     @FXML
     private TextField portField;
 
-
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
-    }
-    public void setTableOverviewController(TableOverviewController tableOverviewController){
-        this.tableOverviewController = tableOverviewController;
     }
 
     public void setDataSetterController(DataSetterController dataSetterController){
@@ -77,8 +71,7 @@ public class RootLayoutController {
 
     @FXML
     public void handleFindPerson(){
-        boolean okClicked = mainApp.showPersonFindDialog();
-
+        mainApp.showPersonFindDialog();
     }
 
     @FXML
@@ -87,15 +80,16 @@ public class RootLayoutController {
     }
 
     @FXML
-    private void handleOpen() {
-        mainApp.showTableNameDialog();
+    public void handleReset(){
+        client.sendToServer(Constants.DELETE_ALL);
         dataSetterController.initTable();
     }
 
     @FXML
-    private void handleSave() {
-        client.sendToServer(Constants.SAVE_FILE);
+    private void handleFile() {
+        mainApp.showTableNameDialog();
     }
+
     @FXML
     private void handleExit() {
         System.exit(0);

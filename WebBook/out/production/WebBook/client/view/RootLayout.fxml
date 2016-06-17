@@ -52,6 +52,11 @@
             <Point3D fx:id="x1" />
           </rotationAxis>
         </Button>
+        <Button id="" mnemonicParsing="false" onAction="#handleReset" prefHeight="30.0" prefWidth="50.0" text="Reset">
+          <rotationAxis>
+            <Point3D fx:id="x1" />
+          </rotationAxis>
+        </Button>
       </items>
       <rotationAxis>
         <Point3D fx:id="x1" />
@@ -63,8 +68,7 @@
       <menus>
         <Menu mnemonicParsing="false" text="File">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#handleOpen" text="Open..." />
-            <MenuItem mnemonicParsing="false" onAction="#handleSave" text="Save..." />
+            <MenuItem mnemonicParsing="false" onAction="#handleFile" text="File..." />
             <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Close" />
           </items>
         </Menu>

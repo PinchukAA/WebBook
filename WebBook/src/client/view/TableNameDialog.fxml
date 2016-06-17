@@ -7,10 +7,11 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.757415771484375" prefWidth="272.0001220703125" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="client.controller.TableNameDialogController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.51483154296875" prefWidth="276.0001220703125" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="client.controller.TableNameDialogController">
   <children>
-    <TextField fx:id="tableNameField" layoutX="8.0" layoutY="30.0" prefWidth="190.373291015625" />
-    <Text layoutX="25.0" layoutY="25.0" scaleX="1.2" scaleY="1.2" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter name of file to open:     " />
-    <Button layoutX="213.0" layoutY="7.0" mnemonicParsing="false" onAction="#openTable" prefHeight="45.0" prefWidth="45.0" text="OK" />
+    <TextField fx:id="tableNameField" layoutX="8.0" layoutY="35.0" prefWidth="190.373291015625" />
+    <Text layoutX="25.0" layoutY="26.0" scaleX="1.2" scaleY="1.2" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter file name:     " />
+    <Button layoutX="207.0" layoutY="9.0" mnemonicParsing="false" onAction="#openTable" prefHeight="24.0" prefWidth="62.0" text="Open..." />
+    <Button layoutX="207.0" layoutY="35.0" mnemonicParsing="false" onAction="#saveTable" prefHeight="24.0" prefWidth="62.0" text="Save..." />
   </children>
 </AnchorPane>

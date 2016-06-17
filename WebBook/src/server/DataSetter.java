@@ -33,7 +33,6 @@ public class DataSetter {
     private void selectData(){
         if (startIndex == endIndex && endIndex != 0) showPrevPage();
         selectedData.setAll(currentData.subList(startIndex, endIndex));
-
         try {
             serverSession.getOutputStream().writeObject(selectedData.toArray(new Person[selectedData.size()]));
             serverSession.getOutputStream().writeObject(currentData.size());

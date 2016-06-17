@@ -7,6 +7,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.Person;
 
+import javax.swing.*;
 import java.io.File;
 import java.util.Iterator;
 
@@ -14,9 +15,9 @@ public class DataSaver {
     private DataBase dataBase;
     private ServerSession serverSession;
 
-    private Stage primaryStage;
     private ObservableList<Person> data = FXCollections.observableArrayList();
     private String filePath;
+    private String fileName;
 
     public void setDataBase(DataBase dataBase) {
         this.dataBase = dataBase;
@@ -26,13 +27,11 @@ public class DataSaver {
         this.serverSession = serverSession;
     }
 
-    public void openFile(){
-        FileChooser fileChooser = new FileChooser();
-        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter(
-                "XML files (*.xml)", "*.xml");
-        fileChooser.getExtensionFilters().add(extFilter);
+    public void openFile(String fileName){
+        this.fileName = fileName;
+        filePath = "D:\\XML\\" + fileName+ ".xml";
 
-        File file = fileChooser.showOpenDialog(null);
+        File file = new File(filePath);
 
         if (file != null) {
             loadPersonDataFromFile(file);
@@ -42,54 +41,21 @@ public class DataSaver {
         }
     }
 
-    public void saveFile() {
-        File personFile = getPersonFilePath();
-        if (personFile != null) {
-            savePersonDataToFile(personFile);
-        } else {
-            saveFileAs();
-        }
-    }
+    public void saveFile(String fileName){
+        this.fileName = fileName;
+        filePath = "D:\\XML\\" + fileName+ ".xml";
 
-    private void saveFileAs(){
-        FileChooser fileChooser = new FileChooser();
-        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter(
-                "XML files (*.xml)", "*.xml");
-        fileChooser.getExtensionFilters().add(extFilter);
-
-        File file = fileChooser.showSaveDialog(null);
-
+        File file = new File(filePath);
         if (file != null) {
-            if (!file.getPath().endsWith(".xml")) {
-                file = new File(file.getPath() + ".xml");
-            }
             savePersonDataToFile(file);
         }
     }
 
-    public File getPersonFilePath() {
-        if (filePath != null) {
-            return new File(filePath);
-        } else {
-            return null;
-        }
-    }
-
-    public void setPersonFilePath(File file) {
-        if (file != null) {
-            filePath = file.getAbsolutePath();
-        } else {
-            filePath = null;
-        }
-
-    }
 
     public void loadPersonDataFromFile(File file) {
         try {
             DataParser dataParser = new DataParser();
             dataBase.setData(dataParser.loadAddressBook(file));
-
-            setPersonFilePath(file);
 
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -105,7 +71,6 @@ public class DataSaver {
         try {
             DataParser dataParser = new DataParser();
             dataParser.save(file, dataBase.getData());
-            setPersonFilePath(file);
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");

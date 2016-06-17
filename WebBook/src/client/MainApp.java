@@ -269,6 +269,7 @@ public class MainApp extends Application{
         dialogStage.setScene(scene);
 
         tableNameDialogController.setClient(client);
+        tableNameDialogController.setDataSetterController(dataSetterController);
         dialogStage.showAndWait();
     }
 
